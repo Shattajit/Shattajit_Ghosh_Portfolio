@@ -47,8 +47,10 @@ never looks broken — you just won't see live-API data.
 
 - **Frontend → [Vercel](https://vercel.com):** connect the GitHub repo, set root directory
   to `frontend`, add env var `NEXT_PUBLIC_API_URL` = your deployed backend URL.
-- **Backend → [Render](https://render.com)** (free web service, Docker or native .NET runtime):
-  connect the repo, set root directory to `backend`, add env vars:
+- **Backend → [Render](https://render.com)**: Render has no native .NET runtime, so this
+  deploys via the `backend/Dockerfile` (multi-stage build, .NET 10 SDK/ASP.NET runtime images).
+  When creating the Web Service, set root directory to `backend` and Environment to **Docker** —
+  Render should auto-detect the Dockerfile. Add env vars:
   - `Email__SmtpHost`, `Email__SmtpPort`, `Email__SmtpUser`, `Email__SmtpPassword`
   - `FrontendOrigin` = your deployed Vercel URL (for CORS)
 
