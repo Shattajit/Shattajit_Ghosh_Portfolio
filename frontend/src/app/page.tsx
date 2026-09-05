@@ -10,6 +10,8 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import { getPortfolioData } from "@/lib/api";
 
+export const dynamic = "force-static";
+
 export default async function Home() {
   const data = await getPortfolioData();
 
