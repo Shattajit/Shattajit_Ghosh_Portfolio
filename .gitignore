@@ -1,0 +1,14 @@
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
+frontend/next-env.d.ts
+
+# .NET
+backend/bin/
+backend/obj/
+backend/appsettings.Production.json
+
+# OS
+.DS_Store
+Thumbs.db
