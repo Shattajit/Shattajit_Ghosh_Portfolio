@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.Configure<EmailOptions>(builder.Configuration.GetSection("Email"));
-builder.Services.AddScoped<IEmailService, SmtpEmailService>();
+builder.Services.AddHttpClient<IEmailService, ResendEmailService>();
 
 var frontendOrigin = builder.Configuration["FrontendOrigin"] ?? "http://localhost:3000";
 builder.Services.AddCors(options =>

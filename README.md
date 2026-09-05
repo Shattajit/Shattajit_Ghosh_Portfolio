@@ -11,16 +11,14 @@ A personal portfolio site built as two deployable pieces:
 
 ```bash
 cd backend
-dotnet user-secrets set "Email:SmtpHost" "smtp.gmail.com"
-dotnet user-secrets set "Email:SmtpPort" "587"
-dotnet user-secrets set "Email:SmtpUser" "your-gmail@gmail.com"
-dotnet user-secrets set "Email:SmtpPassword" "your-gmail-app-password"
+dotnet user-secrets set "Email:ResendApiKey" "re_your_api_key"
 dotnet run --launch-profile http
 ```
 
-Runs on `http://localhost:5063`. Generate a Gmail App Password at
-https://myaccount.google.com/apppasswords (requires 2-Step Verification enabled
-on the Google account) — never use your real Gmail password here.
+Runs on `http://localhost:5063`. Contact form emails are sent via
+[Resend](https://resend.com)'s HTTP API (not SMTP — Render's free tier blocks
+outbound SMTP ports, and Resend's free tier covers 3,000 emails/month via HTTPS).
+Sign up at resend.com and generate an API key under Settings → API Keys.
 
 ### 2. Frontend
 
@@ -51,7 +49,8 @@ never looks broken — you just won't see live-API data.
   deploys via the `backend/Dockerfile` (multi-stage build, .NET 10 SDK/ASP.NET runtime images).
   When creating the Web Service, set root directory to `backend` and Environment to **Docker** —
   Render should auto-detect the Dockerfile. Add env vars:
-  - `Email__SmtpHost`, `Email__SmtpPort`, `Email__SmtpUser`, `Email__SmtpPassword`
+  - `Email__ResendApiKey` = your Resend API key
+  - `Email__FromAddress` = `onboarding@resend.dev` (or a verified custom domain sender)
   - `FrontendOrigin` = your deployed Vercel URL (for CORS)
 
 Note: Render's free tier spins down after ~15 min idle; the first request after

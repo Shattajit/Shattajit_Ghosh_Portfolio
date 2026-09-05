@@ -2,9 +2,7 @@ namespace Portfolio.Api.Services;
 
 public class EmailOptions
 {
-    public string SmtpHost { get; set; } = string.Empty;
-    public int SmtpPort { get; set; } = 587;
-    public string SmtpUser { get; set; } = string.Empty;
-    public string SmtpPassword { get; set; } = string.Empty;
+    public string ResendApiKey { get; set; } = string.Empty;
+    public string FromAddress { get; set; } = "onboarding@resend.dev";
     public string ToAddress { get; set; } = string.Empty;
 }
