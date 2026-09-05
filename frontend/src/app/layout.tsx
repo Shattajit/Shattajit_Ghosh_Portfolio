@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     "Shattajit Ghosh — Backend Software Engineer specializing in ASP.NET Core, scalable APIs, and AI-integrated systems.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
