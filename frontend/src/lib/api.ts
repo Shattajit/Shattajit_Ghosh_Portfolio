@@ -6,7 +6,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5063";
 export async function getPortfolioData(): Promise<PortfolioResponse> {
   try {
     const res = await fetch(`${API_URL}/api/projects`, {
-      cache: "force-cache",
+      next: { revalidate: 3600 },
     });
     if (!res.ok) throw new Error(`API responded with ${res.status}`);
     return (await res.json()) as PortfolioResponse;
