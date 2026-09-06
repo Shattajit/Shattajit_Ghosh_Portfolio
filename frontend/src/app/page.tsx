@@ -18,12 +18,12 @@ export default async function Home() {
       <Nav />
       <main>
         <Hero />
-        <About />
+        <About info={data.about} />
         <Experience entries={data.experience} />
         <Projects projects={data.personalProjects} />
-        <Skills />
-        <Achievements items={data.achievements} />
-        <Education />
+        <Skills categories={data.skills} />
+        <Achievements items={data.achievements} stats={data.competitiveStats} />
+        <Education entries={data.education} />
         <Contact />
       </main>
       <Footer />

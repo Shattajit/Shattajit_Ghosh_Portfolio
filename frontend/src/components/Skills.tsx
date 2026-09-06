@@ -1,33 +1,7 @@
+import { SkillCategory } from "@/lib/types";
 import Reveal from "./Reveal";
 
-const CATEGORIES = [
-  {
-    title: "Languages",
-    items: ["C#", "C++", "JavaScript", "Java"],
-  },
-  {
-    title: "Frameworks & Technologies",
-    items: [
-      "ASP.NET Core",
-      "Node.js",
-      "Express.js",
-      "React.js",
-      "Next.js",
-      "REST API",
-      "GraphQL",
-      "Microservices",
-      "Git",
-      "Linux",
-      "Docker",
-    ],
-  },
-  {
-    title: "Databases",
-    items: ["PostgreSQL", "MySQL", "MongoDB"],
-  },
-];
-
-export default function Skills() {
+export default function Skills({ categories }: { categories: SkillCategory[] }) {
   return (
     <section id="skills" className="section-py bg-bg-alt">
       <div className="mx-auto max-w-5xl px-6">
@@ -37,7 +11,7 @@ export default function Skills() {
         </Reveal>
 
         <div className="flex flex-col gap-8">
-          {CATEGORIES.map((cat, i) => (
+          {categories.map((cat, i) => (
             <Reveal key={cat.title} delay={i * 80}>
               <h3 className="mb-3.5 text-sm font-semibold text-text-dim">
                 {cat.title}
