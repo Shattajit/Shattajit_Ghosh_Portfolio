@@ -56,7 +56,7 @@ export default function Nav() {
         <a
           href="/Shattajit_Ghosh_Resume.pdf"
           download="Shattajit_Ghosh_Resume.pdf"
-          className="hidden rounded-lg border border-border px-4 py-2 text-sm font-semibold text-text transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent md:inline-flex"
+          className="hidden animate-pulse-glow rounded-lg border border-accent/40 bg-accent px-4 py-2 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 hover:brightness-110 md:inline-flex"
         >
           Resume
         </a>

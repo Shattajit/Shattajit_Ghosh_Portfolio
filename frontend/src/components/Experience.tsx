@@ -42,17 +42,17 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
                   href={entry.organizationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mb-4 mt-1 inline-flex items-center gap-1 text-accent-2 hover:underline"
+                  className="mb-6 mt-1 inline-flex items-center gap-1 text-accent-2 hover:underline"
                 >
                   {entry.organization}
                   <span className="text-xs opacity-70">↗</span>
                 </a>
               ) : (
-                <p className="mb-4 mt-1 text-accent-2">{entry.organization}</p>
+                <p className="mb-6 mt-1 text-accent-2">{entry.organization}</p>
               )}
 
               {entry.badge && (
-                <span className="mb-5 inline-block rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-[0.82rem] text-accent">
+                <span className="mb-7 inline-block rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 text-[0.82rem] text-accent">
                   🏆 {entry.badge}
                 </span>
               )}
@@ -61,22 +61,26 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
                 <div
                   key={project.title}
                   className={`${
-                    pi === 0 ? "" : "mt-5 border-t border-dashed border-border pt-5"
+                    pi === 0 ? "" : "mt-9 border-t border-dashed border-border pt-8"
                   }`}
                 >
-                  <h4 className="font-display text-[1.05rem] font-extrabold tracking-tight text-text">
+                  <h4 className="mb-5 font-display text-[1.05rem] font-extrabold tracking-tight text-text">
                     {project.title}
                   </h4>
 
-                  <span className="mb-2 mt-3 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
-                    Tech stack
-                  </span>
-                  <StackChipRow stack={project.stack} />
+                  <div className="mb-6">
+                    <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
+                      Tech stack
+                    </span>
+                    <StackChipRow stack={project.stack} />
+                  </div>
 
-                  <span className="mb-2 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
-                    What I did
-                  </span>
-                  <HighlightGrid bullets={project.bullets} />
+                  <div>
+                    <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
+                      What I did
+                    </span>
+                    <HighlightGrid bullets={project.bullets} />
+                  </div>
                 </div>
               ))}
             </Reveal>
@@ -91,7 +95,7 @@ function StackChipRow({ stack }: { stack: string }) {
   const ref = useStackReveal<HTMLDivElement>();
 
   return (
-    <div ref={ref} className="mb-5 flex flex-wrap gap-2">
+    <div ref={ref} className="flex flex-wrap gap-2">
       {splitStack(stack).map((tech) => {
         const icon = getTechIcon(tech);
         return (
@@ -112,7 +116,7 @@ function HighlightGrid({ bullets }: { bullets: string[] }) {
   const ref = useStackReveal<HTMLDivElement>();
 
   return (
-    <div ref={ref} className="grid gap-2.5 sm:grid-cols-2">
+    <div ref={ref} className="grid gap-3 sm:grid-cols-2">
       {bullets.map((bullet) => {
         const { icon, tone } = getBulletIcon(bullet);
         return (

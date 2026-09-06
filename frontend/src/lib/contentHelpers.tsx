@@ -70,6 +70,12 @@ const TECH_ICON_RULES: { keywords: string[]; icon: string }[] = [
   { keywords: ["javascript"], icon: "💛" },
   { keywords: ["sql"], icon: "🗄️" },
   { keywords: ["docker"], icon: "🐳" },
+  { keywords: ["c#"], icon: "🟣" },
+  { keywords: ["c++"], icon: "🔵" },
+  { keywords: ["java"], icon: "☕" },
+  { keywords: ["git"], icon: "🔀" },
+  { keywords: ["linux"], icon: "🐧" },
+  { keywords: ["next.js", "nextjs"], icon: "▲" },
 ];
 
 export function getTechIcon(name: string): string | null {

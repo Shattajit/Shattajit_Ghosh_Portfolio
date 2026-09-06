@@ -144,3 +144,22 @@ body {
     animation: none;
   }
 }
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 14px rgba(94, 234, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(94, 234, 212, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
