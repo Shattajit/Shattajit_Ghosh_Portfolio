@@ -86,7 +86,7 @@ export default function Contact() {
               disabled={status === "sending"}
               className="mt-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-bg transition-all hover:-translate-y-0.5 hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {status === "sending" ? "Sending…" : "Send Message"}
+              {status === "sending" ? "Sending…" : "Send Email"}
             </button>
             {status === "success" && (
               <p className="text-sm text-accent">{feedback}</p>
