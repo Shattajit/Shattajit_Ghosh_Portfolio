@@ -109,14 +109,6 @@ export default function Hero() {
           />
         </div>
       </div>
-
-      <a
-        href="#about"
-        aria-label="Scroll down"
-        className="absolute bottom-9 left-1/2 h-[42px] w-[26px] -translate-x-1/2 rounded-full border border-border"
-      >
-        <span className="absolute left-1/2 top-2 h-2 w-1 -translate-x-1/2 animate-bounce rounded-full bg-accent" />
-      </a>
     </section>
   );
 }
