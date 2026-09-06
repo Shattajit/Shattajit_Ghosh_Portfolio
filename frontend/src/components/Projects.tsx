@@ -1,7 +1,7 @@
 "use client";
 
 import { PersonalProject } from "@/lib/types";
-import { getTechIcon } from "@/lib/contentHelpers";
+import { getTechIconInfo } from "@/lib/techIcons";
 import { useStackReveal } from "@/hooks/useStackReveal";
 import Reveal from "./Reveal";
 
@@ -48,13 +48,13 @@ export default function Projects({ projects }: { projects: PersonalProject[] }) 
               <p className="mb-4 text-[0.95rem] text-text-dim">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((t) => {
-                  const icon = getTechIcon(t);
+                  const { Icon, color } = getTechIconInfo(t);
                   return (
                     <span
                       key={t}
-                      className="flex items-center gap-1.5 rounded-md border border-border bg-bg-alt px-2.5 py-1 font-mono text-xs text-text-dim"
+                      className="flex items-center gap-1.5 rounded-md border border-border bg-bg-alt px-2.5 py-1 font-mono text-xs text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent/40"
                     >
-                      {icon && <span className="text-sm leading-none">{icon}</span>}
+                      <Icon style={{ color }} className="shrink-0 text-sm" />
                       {t}
                     </span>
                   );

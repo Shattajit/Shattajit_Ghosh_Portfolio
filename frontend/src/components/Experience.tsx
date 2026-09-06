@@ -1,7 +1,8 @@
 "use client";
 
 import { ExperienceEntry } from "@/lib/types";
-import { getBulletIcon, renderBoldText, splitStack, getTechIcon } from "@/lib/contentHelpers";
+import { getBulletIcon, renderBoldText, splitStack } from "@/lib/contentHelpers";
+import { getTechIconInfo } from "@/lib/techIcons";
 import { useStackReveal } from "@/hooks/useStackReveal";
 import Reveal from "./Reveal";
 
@@ -97,13 +98,13 @@ function StackChipRow({ stack }: { stack: string }) {
   return (
     <div ref={ref} className="flex flex-wrap gap-2">
       {splitStack(stack).map((tech) => {
-        const icon = getTechIcon(tech);
+        const { Icon, color } = getTechIconInfo(tech);
         return (
           <span
             key={tech}
-            className="flex items-center gap-1.5 rounded-md border border-border bg-bg-alt px-2.5 py-1.5 text-xs font-medium text-text-dim opacity-0"
+            className="flex items-center gap-1.5 rounded-md border border-border bg-bg-alt px-2.5 py-1.5 text-xs font-medium text-text-dim opacity-0 transition-all hover:-translate-y-0.5 hover:border-accent/40"
           >
-            {icon && <span className="text-sm leading-none">{icon}</span>}
+            <Icon style={{ color }} className="shrink-0 text-sm" />
             {tech}
           </span>
         );
@@ -122,7 +123,7 @@ function HighlightGrid({ bullets }: { bullets: string[] }) {
         return (
           <div
             key={bullet}
-            className="flex items-start gap-2.5 rounded-[10px] border border-border bg-surface p-3.5 opacity-0 transition-colors hover:border-accent/35"
+            className="flex items-start gap-2.5 rounded-[10px] border border-border bg-surface p-3.5 opacity-0 transition-all hover:-translate-y-0.5 hover:border-accent/35"
           >
             <span
               className={`flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[7px] text-sm ${TONE_CLASSES[tone]}`}

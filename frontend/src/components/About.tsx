@@ -24,7 +24,7 @@ export default function About({ info }: { info: AboutInfo }) {
             {info.stats.map((s) => (
               <div
                 key={s.label}
-                className="rounded-xl border border-border bg-surface p-5"
+                className="rounded-xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent/40"
               >
                 <span className="font-mono text-3xl font-bold text-accent">
                   {s.value}
