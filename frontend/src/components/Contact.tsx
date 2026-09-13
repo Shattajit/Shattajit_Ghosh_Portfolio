@@ -97,9 +97,8 @@ export default function Contact() {
           </form>
         </Reveal>
 
-        <Reveal delay={140} className="mx-auto mt-14 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal delay={140} className="mx-auto mt-14 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ContactCard label="Email" value="shattajitghosh89@gmail.com" href="mailto:shattajitghosh89@gmail.com" />
-          <ContactCard label="Phone" value="+880 1894 097578" href="tel:+8801894097578" />
           <ContactCard label="LinkedIn" value="/in/shattajit-ghosh" href="https://www.linkedin.com/in/shattajit-ghosh/" />
           <ContactCard label="GitHub" value="/Shattajit" href="https://github.com/Shattajit" />
         </Reveal>
