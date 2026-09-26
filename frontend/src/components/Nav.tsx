@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
   { href: "#about", label: "About" },
@@ -37,7 +38,8 @@ export default function Nav() {
           className="font-mono text-lg font-bold text-text"
           onClick={() => setOpen(false)}
         >
-          SG<span className="text-accent">.</span>
+          <span className="text-accent">{"<"}</span> Shattajit{" "}
+          <span className="text-accent">{"/>"}</span>
         </Link>
 
         <nav className="hidden gap-7 md:flex">
@@ -53,13 +55,16 @@ export default function Nav() {
           ))}
         </nav>
 
-        <a
-          href="/Shattajit_Ghosh_Resume.pdf"
-          download="Shattajit_Ghosh_Resume.pdf"
-          className="hidden animate-pulse-glow rounded-lg border border-accent/40 bg-accent px-4 py-2 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 hover:brightness-110 md:inline-flex"
-        >
-          Resume
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
+          <a
+            href="/Shattajit_Ghosh_Resume.pdf"
+            download="Shattajit_Ghosh_Resume.pdf"
+            className="animate-pulse-glow rounded-lg border border-accent/40 bg-accent px-4 py-2 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 hover:brightness-110"
+          >
+            Resume
+          </a>
+        </div>
 
         <button
           aria-label="Toggle menu"
@@ -104,6 +109,7 @@ export default function Nav() {
           >
             Download Resume
           </a>
+          <ThemeToggle />
         </nav>
       )}
     </header>

@@ -2,11 +2,21 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getTechIconInfo } from "@/lib/techIcons";
 
 const ROLES = [
   "Full Stack Software Engineer",
   "ASP.NET Core Developer",
   "Competitive Programmer",
+];
+
+const ORBIT_STACK: { name: string; style: React.CSSProperties }[] = [
+  { name: "React", style: { top: "-6%", left: "8%" } },
+  { name: "C#", style: { top: "-10%", left: "70%" } },
+  { name: "Next.js", style: { top: "36%", left: "104%" } },
+  { name: "ASP.NET Core", style: { top: "42%", left: "-18%" } },
+  { name: "Docker", style: { top: "88%", left: "-8%" } },
+  { name: "Node.js", style: { top: "92%", left: "78%" } },
 ];
 
 export default function Hero() {
@@ -99,6 +109,8 @@ export default function Hero() {
 
         <div className="relative shrink-0">
           <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-accent/20 blur-2xl" />
+          <div className="absolute -inset-4 hidden rounded-full border border-accent/15 sm:block" />
+          <div className="absolute -inset-9 hidden rounded-full border border-accent-2/10 sm:block" />
           <Image
             src="/profile.jpg"
             alt="Shattajit Ghosh"
@@ -107,6 +119,18 @@ export default function Hero() {
             priority
             className="h-40 w-40 rounded-full border-2 border-border object-cover sm:h-52 sm:w-52 md:h-64 md:w-64"
           />
+          {ORBIT_STACK.map((item) => {
+            const { Icon, color } = getTechIconInfo(item.name);
+            return (
+              <span
+                key={item.name}
+                style={item.style}
+                className="absolute hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-surface shadow-lg transition-transform hover:scale-110 sm:flex"
+              >
+                <Icon style={{ color }} className="text-lg" />
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>

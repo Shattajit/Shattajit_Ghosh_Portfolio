@@ -4,6 +4,7 @@ import { PersonalProject } from "@/lib/types";
 import { getTechIconInfo } from "@/lib/techIcons";
 import Reveal from "./Reveal";
 import TimelineDot from "./TimelineDot";
+import TimelineRail from "./TimelineRail";
 
 const ICONS: Record<string, string> = {
   Omnitrix: "🛒",
@@ -19,7 +20,7 @@ export default function Projects({ projects }: { projects: PersonalProject[] }) 
           <h2 className="section-title">Personal Projects</h2>
         </Reveal>
 
-        <div className="border-l border-border pl-6 sm:pl-8">
+        <TimelineRail className="pl-6 sm:pl-8">
           {projects.map((project, i) => (
             <Reveal
               key={project.title}
@@ -65,7 +66,7 @@ export default function Projects({ projects }: { projects: PersonalProject[] }) 
               </article>
             </Reveal>
           ))}
-        </div>
+        </TimelineRail>
       </div>
     </section>
   );

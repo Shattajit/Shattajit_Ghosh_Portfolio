@@ -6,6 +6,7 @@ import { getTechIconInfo } from "@/lib/techIcons";
 import { useStackReveal } from "@/hooks/useStackReveal";
 import Reveal from "./Reveal";
 import TimelineDot from "./TimelineDot";
+import TimelineRail from "./TimelineRail";
 
 const TONE_CLASSES: Record<string, string> = {
   accent: "bg-accent/10 text-accent",
@@ -22,7 +23,7 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
           <h2 className="section-title">Where I&apos;ve worked</h2>
         </Reveal>
 
-        <div className="border-l border-border pl-6 sm:pl-8">
+        <TimelineRail className="pl-6 sm:pl-8">
           {entries.map((entry, i) => (
             <Reveal
               key={entry.role + entry.period}
@@ -59,7 +60,7 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
                 </span>
               )}
 
-              <div className="mt-2 border-l border-dashed border-border/70 pl-5 sm:pl-6">
+              <TimelineRail dashed className="mt-2 pl-5 sm:pl-6">
                 {entry.projects.map((project, pi) => (
                   <Reveal
                     key={project.title}
@@ -87,10 +88,10 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
                     </div>
                   </Reveal>
                 ))}
-              </div>
+              </TimelineRail>
             </Reveal>
           ))}
-        </div>
+        </TimelineRail>
       </div>
     </section>
   );

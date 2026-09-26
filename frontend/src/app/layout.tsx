@@ -25,12 +25,18 @@ export const metadata: Metadata = {
     "Shattajit Ghosh — Full Stack Software Engineer specializing in ASP.NET Core, React/Next.js, scalable APIs, and AI-integrated systems.",
 };
 
+const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${manrope.variable} ${geistMono.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="min-h-full bg-bg font-sans text-text">
         <BackgroundFX />
         {children}

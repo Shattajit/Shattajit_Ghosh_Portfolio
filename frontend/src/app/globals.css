@@ -12,6 +12,32 @@
   --accent-2: #7dd3fc;
 }
 
+/* Glacier — icy blue-white, frosted glass */
+:root[data-theme="glacier"] {
+  --bg: #eef6fb;
+  --bg-alt: #e3eff8;
+  --surface: #ffffff;
+  --border: #cfe3f0;
+  --text: #0c2536;
+  --text-dim: #3d5b70;
+  --text-faint: #6d8a9c;
+  --accent: #14b8c4;
+  --accent-2: #3b82f6;
+}
+
+/* White — clean, minimal light */
+:root[data-theme="white"] {
+  --bg: #ffffff;
+  --bg-alt: #f7f8fa;
+  --surface: #ffffff;
+  --border: #e4e7eb;
+  --text: #111827;
+  --text-dim: #4b5563;
+  --text-faint: #9ca3af;
+  --accent: #0d9488;
+  --accent-2: #2563eb;
+}
+
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
