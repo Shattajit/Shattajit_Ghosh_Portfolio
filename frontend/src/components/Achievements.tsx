@@ -11,6 +11,18 @@ const PROFILES = [
   { name: "LightOJ", href: "https://lightoj.com/user/raindust" },
 ];
 
+// Matches the arrow-box used on Project cards: a small bordered square
+// that lights up accent-colored on hover, not a bare glyph.
+function ArrowBadge({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-md border border-border text-xs text-text-dim transition-all group-hover:border-accent group-hover:text-accent ${className}`}
+    >
+      ↗
+    </span>
+  );
+}
+
 export default function Achievements({
   items,
   stats,
@@ -43,10 +55,10 @@ export default function Achievements({
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                className="group inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
               >
                 {p.name}
-                <span className="text-xs opacity-70">↗</span>
+                <ArrowBadge />
               </a>
             )
           )}
@@ -96,9 +108,7 @@ function AchievementGrid({ items }: { items: Achievement[] }) {
           >
             <span className="flex items-start justify-between gap-2">
               <strong className="text-sm text-text">{a.name}</strong>
-              <span className="text-xs text-text-faint opacity-70 transition-opacity group-hover:opacity-100 group-hover:text-accent">
-                ↗
-              </span>
+              <ArrowBadge />
             </span>
             <span className="font-mono text-sm text-accent">{a.result}</span>
           </a>
@@ -126,10 +136,10 @@ function CodeforcesProfileBranch({ href, rating }: { href: string; rating: strin
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+        className="group inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
       >
         Codeforces
-        <span className="text-xs opacity-70">↗</span>
+        <ArrowBadge />
       </a>
 
       <svg width="10" height="22" viewBox="0 0 10 22" className="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 overflow-visible" aria-hidden="true">

@@ -9,8 +9,10 @@ type TreeNode = { name: string; point: Point };
 type TreeGroup = { title: string; branch: Point; nodes: TreeNode[] };
 
 const ROOT_X = 16;
-const BRANCH_X = 150;
-const NODE_X = 220;
+const BRANCH_X_FALLBACK = 160; // used only for the first render, before box widths are measured
+const FAN_LENGTH = 70; // horizontal distance from a category box's right edge to its skill nodes
+const NAME_ROOM = 170; // room for the skill name text after each icon
+const BRANCH_MARGIN = 30; // clearance kept between root and the widest box's left edge
 const ITEM_PITCH = 28;
 const GROUP_GAP = 70; // wide separation between categories so one branch's lines never crowd another's box
 const MARGIN_Y = 14;
@@ -23,19 +25,28 @@ export default function SkillsTree({ categories }: { categories: SkillCategory[]
   const labelRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [boxWidths, setBoxWidths] = useState<number[] | null>(null);
 
+  // Dynamic, not guessed: BRANCH_X is derived from the widest measured
+  // category box + a fixed clearance, so a long label like "Frameworks &
+  // Technologies" can never push a box into negative x and get clipped —
+  // it just pushes BRANCH_X (and everything to its right) out instead.
+  const branchX = boxWidths && boxWidths.length > 0
+    ? Math.max(...boxWidths) + BRANCH_MARGIN
+    : BRANCH_X_FALLBACK;
+  const nodeX = branchX + FAN_LENGTH;
+
   const groups: TreeGroup[] = useMemo(() => {
     let cursorY = MARGIN_Y;
     return categories.map((cat) => {
       const top = cursorY;
       const nodes: TreeNode[] = cat.items.map((item, i) => ({
         name: item,
-        point: { x: NODE_X, y: top + i * ITEM_PITCH + ITEM_PITCH / 2 },
+        point: { x: nodeX, y: top + i * ITEM_PITCH + ITEM_PITCH / 2 },
       }));
       const branchY = (nodes[0].point.y + nodes[nodes.length - 1].point.y) / 2;
       cursorY = top + cat.items.length * ITEM_PITCH + GROUP_GAP;
-      return { title: cat.title, branch: { x: BRANCH_X, y: branchY }, nodes };
+      return { title: cat.title, branch: { x: branchX, y: branchY }, nodes };
     });
-  }, [categories]);
+  }, [categories, branchX, nodeX]);
 
   const totalHeight = useMemo(() => {
     if (groups.length === 0) return 0;
@@ -45,7 +56,7 @@ export default function SkillsTree({ categories }: { categories: SkillCategory[]
   }, [groups]);
 
   const root: Point = { x: ROOT_X, y: totalHeight / 2 };
-  const naturalWidth = NODE_X + 170; // room for the skill name text after each icon
+  const naturalWidth = nodeX + NAME_ROOM;
 
   useLayoutEffect(() => {
     setBoxWidths(labelRefs.current.map((el) => el?.offsetWidth ?? 0));
@@ -80,7 +91,7 @@ export default function SkillsTree({ categories }: { categories: SkillCategory[]
   return (
     <div
       ref={stageRef}
-      className="w-full max-w-[600px] overflow-hidden"
+      className="w-full max-w-[600px] overflow-visible"
       style={{ height: totalHeight * scale }}
       aria-hidden="true"
     >
