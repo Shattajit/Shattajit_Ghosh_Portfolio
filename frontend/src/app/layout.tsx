@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Shattajit Ghosh | Software Engineer",
   description:
-    "Shattajit Ghosh — Backend Software Engineer specializing in ASP.NET Core, scalable APIs, and AI-integrated systems.",
+    "Shattajit Ghosh — Full Stack Software Engineer specializing in ASP.NET Core, React/Next.js, scalable APIs, and AI-integrated systems.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

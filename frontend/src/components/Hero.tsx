@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const ROLES = [
-  "Backend Software Engineer",
+  "Full Stack Software Engineer",
   "ASP.NET Core Developer",
   "Competitive Programmer",
 ];
@@ -54,7 +54,7 @@ export default function Hero() {
             <span className="animate-pulse text-accent">|</span>
           </h2>
           <p className="mt-6 max-w-xl text-[1.05rem] text-text-dim">
-            Backend-focused Software Engineer building scalable APIs, clean
+            Full Stack Software Engineer building scalable APIs, clean
             architectures, and AI-integrated systems. Currently engineering at{" "}
             <strong className="text-text">Astha IT</strong>, Dhaka.
           </p>
