@@ -290,7 +290,12 @@ body {
   stroke-width: 3;
   stroke-linecap: round;
   filter: blur(0.6px) drop-shadow(0 0 4px var(--accent));
-  animation: tree-line-flow 7s ease-in-out infinite;
+  /* Without this, a delayed line has no stroke-dashoffset until its delay
+     elapses, so SVG's default (0 = fully drawn) makes it flash fully
+     visible immediately, then "pop" hidden right when the real animation
+     kicks in — breaking the root-to-right reveal order. backwards makes
+     it sit at the 0% keyframe (hidden) for the entire delay instead. */
+  animation: tree-line-flow 7s ease-in-out infinite backwards;
 }
 
 .tree-line-flow.tree-twig {
@@ -323,7 +328,7 @@ body {
   color: var(--accent);
   white-space: nowrap;
   box-shadow: 0 0 4px var(--accent);
-  animation: tree-box-glow 7s ease-in-out infinite;
+  animation: tree-box-glow 7s ease-in-out infinite backwards;
   animation-delay: 1.8s;
 }
 
@@ -338,7 +343,7 @@ body {
 .tree-leaf-dot {
   border: 1.5px solid var(--border);
   background: var(--surface);
-  animation: tree-node-flash 7s ease-in-out infinite;
+  animation: tree-node-flash 7s ease-in-out infinite backwards;
   animation-delay: 3.6s;
 }
 
@@ -353,7 +358,7 @@ body {
 /* Skill name stays fully legible at all times — just warms to a
    brighter color in sync with its twig pulse, same as the badge flash. */
 .tree-leaf-name {
-  animation: tree-text-warm 7s ease-in-out infinite;
+  animation: tree-text-warm 7s ease-in-out infinite backwards;
   animation-delay: 3.6s;
 }
 
