@@ -55,7 +55,7 @@ export default function SkillsTree({ categories }: { categories: SkillCategory[]
 
   return (
     <div
-      className="pointer-events-none relative mx-auto w-[220px] text-accent sm:w-[260px] lg:mx-0 lg:w-[240px] xl:w-[270px]"
+      className="pointer-events-none relative w-full max-w-[420px] text-accent sm:max-w-[520px] lg:max-w-[600px]"
       style={{ aspectRatio: `${width} / ${totalHeight}` }}
       aria-hidden="true"
     >
