@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 const THEMES = [
-  { id: "dark", label: "Current theme", icon: "🌙" },
   { id: "glacier", label: "Glacier theme", icon: "❄️" },
   { id: "white", label: "White theme", icon: "☀️" },
 ] as const;
@@ -11,7 +10,7 @@ const THEMES = [
 type ThemeId = (typeof THEMES)[number]["id"];
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeId>("dark");
+  const [theme, setTheme] = useState<ThemeId>("glacier");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("theme") as ThemeId | null;

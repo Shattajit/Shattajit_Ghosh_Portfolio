@@ -1,19 +1,7 @@
 @import "tailwindcss";
 
+/* Glacier — deep navy dark theme, icier blue-cyan accents — the default. */
 :root {
-  --bg: #0a0e14;
-  --bg-alt: #0d1219;
-  --surface: #11161f;
-  --border: #1f2733;
-  --text: #f3f6fa;
-  --text-dim: #a3aebc;
-  --text-faint: #7d8794;
-  --accent: #5eead4;
-  --accent-2: #7dd3fc;
-}
-
-/* Glacier — deep navy dark theme, icier blue-cyan accents */
-:root[data-theme="glacier"] {
   --bg: #0a1220;
   --bg-alt: #0e1826;
   --surface: #121d2e;
