@@ -5,6 +5,7 @@ import { getBulletIcon, renderBoldText, splitStack } from "@/lib/contentHelpers"
 import { getTechIconInfo } from "@/lib/techIcons";
 import { useStackReveal } from "@/hooks/useStackReveal";
 import Reveal from "./Reveal";
+import TimelineDot from "./TimelineDot";
 
 const TONE_CLASSES: Record<string, string> = {
   accent: "bg-accent/10 text-accent",
@@ -28,7 +29,7 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
               delay={i * 60}
               className="relative mb-16 last:mb-0"
             >
-              <span className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-accent shadow-[0_0_0_4px_rgba(94,234,212,0.12)] sm:-left-[37px]" />
+              <TimelineDot />
 
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="font-display text-xl font-extrabold tracking-tight text-text">
@@ -58,32 +59,35 @@ export default function Experience({ entries }: { entries: ExperienceEntry[] }) 
                 </span>
               )}
 
-              {entry.projects.map((project, pi) => (
-                <div
-                  key={project.title}
-                  className={`${
-                    pi === 0 ? "" : "mt-9 border-t border-dashed border-border pt-8"
-                  }`}
-                >
-                  <h4 className="mb-5 font-display text-[1.05rem] font-extrabold tracking-tight text-text">
-                    {project.title}
-                  </h4>
+              <div className="mt-2 border-l border-dashed border-border/70 pl-5 sm:pl-6">
+                {entry.projects.map((project, pi) => (
+                  <Reveal
+                    key={project.title}
+                    delay={pi * 60}
+                    className={`relative ${pi === 0 ? "" : "mt-9"}`}
+                  >
+                    <TimelineDot size="sm" />
 
-                  <div className="mb-6">
-                    <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
-                      Tech stack
-                    </span>
-                    <StackChipRow stack={project.stack} />
-                  </div>
+                    <h4 className="mb-5 font-display text-[1.05rem] font-extrabold tracking-tight text-text">
+                      {project.title}
+                    </h4>
 
-                  <div>
-                    <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
-                      What I did
-                    </span>
-                    <HighlightGrid bullets={project.bullets} />
-                  </div>
-                </div>
-              ))}
+                    <div className="mb-6">
+                      <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
+                        Tech stack
+                      </span>
+                      <StackChipRow stack={project.stack} />
+                    </div>
+
+                    <div>
+                      <span className="mb-2.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
+                        What I did
+                      </span>
+                      <HighlightGrid bullets={project.bullets} />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </Reveal>
           ))}
         </div>
