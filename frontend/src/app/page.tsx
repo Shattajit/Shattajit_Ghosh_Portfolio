@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import TerminalBanner from "@/components/TerminalBanner";
 import { getPortfolioData } from "@/lib/api";
 
 export default async function Home() {
@@ -26,6 +27,7 @@ export default async function Home() {
         <Education entries={data.education} />
         <Contact />
       </main>
+      <TerminalBanner />
       <Footer />
     </>
   );

@@ -10,13 +10,15 @@ const ROLES = [
   "Competitive Programmer",
 ];
 
+// Six points evenly spaced (60° apart) on one circle of radius 58% around
+// the photo's center, so every badge orbits at the exact same distance.
 const ORBIT_STACK: { name: string; style: React.CSSProperties }[] = [
-  { name: "React", style: { top: "-6%", left: "8%" } },
-  { name: "C#", style: { top: "-10%", left: "70%" } },
-  { name: "Next.js", style: { top: "36%", left: "104%" } },
-  { name: "ASP.NET Core", style: { top: "42%", left: "-18%" } },
-  { name: "Docker", style: { top: "88%", left: "-8%" } },
-  { name: "Node.js", style: { top: "92%", left: "78%" } },
+  { name: "React", style: { top: "0%", left: "21%" } },
+  { name: "C#", style: { top: "0%", left: "79%" } },
+  { name: "Next.js", style: { top: "50%", left: "108%" } },
+  { name: "ASP.NET Core", style: { top: "50%", left: "-8%" } },
+  { name: "Docker", style: { top: "100%", left: "21%" } },
+  { name: "Node.js", style: { top: "100%", left: "79%" } },
 ];
 
 export default function Hero() {

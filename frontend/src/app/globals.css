@@ -12,17 +12,17 @@
   --accent-2: #7dd3fc;
 }
 
-/* Glacier — icy blue-white, frosted glass */
+/* Glacier — deep navy dark theme, icier blue-cyan accents */
 :root[data-theme="glacier"] {
-  --bg: #eef6fb;
-  --bg-alt: #e3eff8;
-  --surface: #ffffff;
-  --border: #cfe3f0;
-  --text: #0c2536;
-  --text-dim: #3d5b70;
-  --text-faint: #6d8a9c;
-  --accent: #14b8c4;
-  --accent-2: #3b82f6;
+  --bg: #060a12;
+  --bg-alt: #0a0f1a;
+  --surface: #0d1420;
+  --border: #1c2b3d;
+  --text: #eef4fb;
+  --text-dim: #9db3c7;
+  --text-faint: #6f8599;
+  --accent: #38bdf8;
+  --accent-2: #818cf8;
 }
 
 /* White — clean, minimal light */
