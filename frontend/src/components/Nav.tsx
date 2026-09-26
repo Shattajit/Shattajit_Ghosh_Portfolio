@@ -38,8 +38,9 @@ export default function Nav() {
           className="font-mono text-lg font-bold text-text"
           onClick={() => setOpen(false)}
         >
-          <span className="text-accent">{"<"}</span> Shattajit{" "}
-          <span className="text-accent">{"/>"}</span>
+          <span className="logo-bracket-left text-accent">{"<"}</span> Shattajit{" "}
+          <span className="logo-slash text-accent">{"/"}</span>
+          <span className="logo-bracket-right text-accent">{">"}</span>
         </Link>
 
         <nav className="hidden gap-7 md:flex">
