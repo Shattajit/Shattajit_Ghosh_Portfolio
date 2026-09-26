@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FiDownload } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
@@ -61,8 +62,9 @@ export default function Nav() {
           <a
             href="/Shattajit_Ghosh_Resume.pdf"
             download="Shattajit_Ghosh_Resume.pdf"
-            className="animate-pulse-glow rounded-lg border border-accent/40 bg-accent px-4 py-2 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 hover:brightness-110"
+            className="animate-pulse-glow inline-flex items-center gap-1.5 rounded-lg border border-accent/40 bg-accent px-4 py-2 text-sm font-semibold text-bg transition-transform hover:-translate-y-0.5 hover:brightness-110"
           >
+            <FiDownload className="text-base" />
             Resume
           </a>
         </div>
@@ -106,8 +108,9 @@ export default function Nav() {
             href="/Shattajit_Ghosh_Resume.pdf"
             download="Shattajit_Ghosh_Resume.pdf"
             onClick={() => setOpen(false)}
-            className="text-sm font-semibold text-accent"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent"
           >
+            <FiDownload className="text-base" />
             Download Resume
           </a>
           <ThemeToggle />

@@ -37,9 +37,10 @@ export default function Achievements({
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2.5 text-sm text-text-dim transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
             >
               {p.name}
+              <span className="text-xs opacity-70">↗</span>
             </a>
           ))}
         </Reveal>
@@ -78,7 +79,9 @@ function AchievementGrid({ items }: { items: Achievement[] }) {
   return (
     <div ref={ref} className="mb-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((a) =>
-        a.url ? (
+        a.name === "Codeforces" ? (
+          <CodeforcesNode key={a.name} achievement={a} />
+        ) : a.url ? (
           <a
             key={a.name}
             href={a.url}
@@ -105,5 +108,31 @@ function AchievementGrid({ items }: { items: Achievement[] }) {
         )
       )}
     </div>
+  );
+}
+
+function CodeforcesNode({ achievement }: { achievement: Achievement }) {
+  return (
+    <a
+      href={achievement.url ?? undefined}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group col-span-full flex items-center gap-3 rounded-lg border border-border bg-surface p-4 opacity-0 transition-all hover:-translate-y-0.5 hover:border-accent/40 sm:gap-4"
+    >
+      <span className="flex shrink-0 items-center gap-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_0_3px_rgba(94,234,212,0.15)]" />
+        <strong className="whitespace-nowrap text-sm text-text">Codeforces</strong>
+        <span className="text-xs text-text-faint opacity-0 transition-opacity group-hover:opacity-100 group-hover:text-accent">
+          ↗
+        </span>
+      </span>
+      <span className="h-px min-w-8 flex-1 bg-gradient-to-r from-border via-accent/50 to-accent" />
+      <span className="flex shrink-0 items-center gap-2 rounded-md border border-accent/30 bg-accent/10 px-3 py-1.5">
+        <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+        <span className="whitespace-nowrap font-mono text-sm font-bold text-accent">
+          {achievement.result}
+        </span>
+      </span>
+    </a>
   );
 }

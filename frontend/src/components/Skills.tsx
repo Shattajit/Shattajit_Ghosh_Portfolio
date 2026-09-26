@@ -4,6 +4,7 @@ import { SkillCategory } from "@/lib/types";
 import { getTechIconInfo } from "@/lib/techIcons";
 import { useStackReveal } from "@/hooks/useStackReveal";
 import Reveal from "./Reveal";
+import SkillsTree from "./SkillsTree";
 
 export default function Skills({ categories }: { categories: SkillCategory[] }) {
   return (
@@ -14,15 +15,18 @@ export default function Skills({ categories }: { categories: SkillCategory[] }) 
           <h2 className="section-title">Tools &amp; Technologies</h2>
         </Reveal>
 
-        <div className="flex flex-col gap-8">
-          {categories.map((cat, i) => (
-            <Reveal key={cat.title} delay={i * 80}>
-              <span className="mb-3.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
-                {cat.title}
-              </span>
-              <SkillChipRow items={cat.items} />
-            </Reveal>
-          ))}
+        <div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="flex w-full flex-col gap-8">
+            {categories.map((cat, i) => (
+              <Reveal key={cat.title} delay={i * 80}>
+                <span className="mb-3.5 block text-[0.68rem] font-bold uppercase tracking-wider text-text-faint">
+                  {cat.title}
+                </span>
+                <SkillChipRow items={cat.items} />
+              </Reveal>
+            ))}
+          </div>
+          <SkillsTree categories={categories} />
         </div>
       </div>
     </section>

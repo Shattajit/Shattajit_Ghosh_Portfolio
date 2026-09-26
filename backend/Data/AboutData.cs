@@ -16,6 +16,6 @@ public static class AboutData
             new("2200+", "Problems Solved"),
             new("10+", "National Contests"),
             new("5", "Production Projects"),
-            new("1643", "Codeforces Max Rating")
+            new("1645", "Codeforces Max Rating")
         });
 }

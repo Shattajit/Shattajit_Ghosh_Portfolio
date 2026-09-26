@@ -274,3 +274,86 @@ body {
     animation: none;
   }
 }
+
+/* Skills tree: root -> category box -> skill icon nodes. The box IS the
+   branch point (trunk touches its left edge, twig fan starts at its
+   right edge) — no floating dot, no gap to overlap. */
+.tree-wire {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.tree-line-flow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: blur(0.5px) drop-shadow(0 0 3px var(--accent));
+  animation: tree-line-flow 7s ease-in-out infinite;
+}
+
+.tree-line-flow.tree-twig {
+  animation-delay: 1.8s;
+}
+
+@keyframes tree-line-flow {
+  0% { stroke-dashoffset: var(--flow-dist, 150); opacity: 0.95; }
+  26% { stroke-dashoffset: 0; opacity: 1; }
+  79% { stroke-dashoffset: 0; opacity: 1; }
+  90% { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: var(--flow-dist, 150); opacity: 0; }
+}
+
+.tree-root-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 3px var(--accent));
+}
+
+.tree-group-box {
+  display: inline-block;
+  padding: 0.3rem 0.55rem;
+  border-radius: 7px;
+  border: 1.5px solid var(--accent);
+  background: var(--surface);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  box-shadow: 0 0 4px var(--accent);
+  animation: tree-box-glow 7s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+@keyframes tree-box-glow {
+  0% { box-shadow: 0 0 4px var(--accent); }
+  6% { box-shadow: 0 0 7px var(--accent); }
+  79% { box-shadow: 0 0 6px var(--accent); }
+  90% { box-shadow: 0 0 4px var(--accent); }
+  100% { box-shadow: 0 0 4px var(--accent); }
+}
+
+.tree-leaf-dot {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  animation: tree-node-flash 7s ease-in-out infinite;
+  animation-delay: 3.6s;
+}
+
+@keyframes tree-node-flash {
+  0% { border-color: var(--border); box-shadow: none; }
+  6% { border-color: var(--accent); box-shadow: 0 0 6px var(--accent); }
+  79% { border-color: var(--accent); box-shadow: 0 0 5px var(--accent); }
+  90% { border-color: var(--border); box-shadow: none; }
+  100% { border-color: var(--border); box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-line-flow,
+  .tree-group-box,
+  .tree-leaf-dot {
+    animation: none;
+  }
+}

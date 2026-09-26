@@ -12,7 +12,7 @@ export const fallbackPortfolioData: PortfolioResponse = {
       { value: "2200+", label: "Problems Solved" },
       { value: "10+", label: "National Contests" },
       { value: "5", label: "Production Projects" },
-      { value: "1643", label: "Codeforces Max Rating" },
+      { value: "1645", label: "Codeforces Max Rating" },
     ],
   },
   experience: [
@@ -112,25 +112,38 @@ export const fallbackPortfolioData: PortfolioResponse = {
     { title: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB"] },
   ],
   achievements: [
-    { name: "AUST IUPC 2022", result: "46th", url: null },
+    { name: "JnU CSE Sports Carnival Programming Contest 2023", result: "2nd", url: null },
+    { name: "JnU Intra Department Programming Contest 2022", result: "4th", url: null },
     { name: "UITS IUPC 2022", result: "11th", url: null },
-    { name: "JnU CSE Sports Carnival 2023", result: "2nd", url: null },
-    { name: "IEEEXtreme 17.0", result: "740th Global · 4th BD", url: null },
+    { name: "AUST IUPC 2022", result: "46th", url: null },
     {
-      name: "ICPC Dhaka Regional 2022",
+      name: "CoU-BRACNet Inter University Programming Contest 2023",
+      result: "46th",
+      url: null,
+    },
+    { name: "BUET IUPC 2022 & 2023 (JnU_ABC)", result: "49th", url: null },
+    {
+      name: "SEC Inter University Junior Programming Contest 2022",
+      result: "54th",
+      url: null,
+    },
+    { name: "SUST IUPC 2023 (JnU_DholaiKhalBois)", result: "76th", url: null },
+    {
+      name: "ICPC Asia Dhaka Regional Contest 2022",
       result: "102nd",
       url: "https://codeforces.com/profile/ShattajiT_",
     },
+    { name: "IEEEXtreme 17.0", result: "740th Global · 4th BD", url: null },
     {
       name: "Codeforces",
-      result: "Max Rating 1643",
+      result: "Max Rating 1645",
       url: "https://codeforces.com/profile/ShattajiT_",
     },
   ],
   competitiveStats: [
     { value: "2200+", label: "Problems Solved" },
     { value: "10+", label: "National Contests" },
-    { value: "1643", label: "Max CF Rating" },
+    { value: "1645", label: "Max CF Rating" },
     { value: "4th BD", label: "IEEEXtreme 17.0" },
   ],
   education: [
