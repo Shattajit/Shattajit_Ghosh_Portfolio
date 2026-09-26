@@ -28,6 +28,7 @@ export const fallbackPortfolioData: PortfolioResponse = {
           stack: "ASP.NET Core · REST API · OpenAI API · LlamaIndex · Prompt Engineering",
           bullets: [
             "Integrated an **OpenAI-powered transliteration service** into the backend to accurately convert application text into Bangla.",
+            "Implemented **OAuth 2.0 authentication** for Google and Microsoft, using the Factory pattern to instantiate the correct provider client and the Strategy pattern to encapsulate each provider's auth flow — enabling secure single sign-on with pluggable support for future providers.",
             "Built a **LlamaParse-based template engine** that extracts content and structure from uploaded documents and maps them into reusable templates for automated processing.",
             "Designed the document-processing pipeline using the **Strategy pattern** to route PDF, Excel, and CSV files to independently testable extractors — new formats plug in without touching existing code.",
           ],
