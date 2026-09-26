@@ -10,7 +10,7 @@ public static class ExperienceData
             Role: "Software Engineer Level-1",
             Organization: "Astha IT",
             OrganizationUrl: "https://asthait.com",
-            Period: "Sep 2024 — Present",
+            Period: "Sep 2025 — Present",
             Badge: "Q1 \"Game Changer\" Award — top-performing engineer of the quarter",
             Projects: new List<ProjectHighlight>
             {
@@ -47,7 +47,7 @@ public static class ExperienceData
             Role: "Software Engineering Intern",
             Organization: "Astha IT",
             OrganizationUrl: "https://asthait.com",
-            Period: "Jun 2024 — Sep 2024",
+            Period: "Jun 2025 — Sep 2025",
             Badge: null,
             Projects: new List<ProjectHighlight>
             {
