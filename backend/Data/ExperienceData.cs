@@ -35,10 +35,11 @@ public static class ExperienceData
                         "Fixed broken multi-device logout by migrating to a **dedicated refresh-token table** — each device now keeps an independently revocable session."
                     }),
                 new(
-                    Title: "Pantry",
+                    Title: "Pantry — Project Lead",
                     Stack: "ASP.NET Core MVC · Microservices · Production",
                     Bullets: new List<string>
                     {
+                        "Led the project as **Project Lead**, driving technical decisions and coordinating delivery across the team.",
                         "Reworked the pickup ordering flow to surface an **admin-editable capacity notice** instead of a confusing checkout-time failure once a distribution day filled up.",
                         "Built a date-range invoice report and **composition-based PDF batching** that removed manual order-sorting previously done by hand.",
                         "Added **role management** (client ⇄ admin switching) and category management to the MVC admin panel."

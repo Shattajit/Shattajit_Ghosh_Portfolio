@@ -44,9 +44,10 @@ export const fallbackPortfolioData: PortfolioResponse = {
           ],
         },
         {
-          title: "Pantry",
+          title: "Pantry — Project Lead",
           stack: "ASP.NET Core MVC · Microservices · Production",
           bullets: [
+            "Led the project as **Project Lead**, driving technical decisions and coordinating delivery across the team.",
             "Reworked the pickup ordering flow to surface an **admin-editable capacity notice** instead of a confusing checkout-time failure once a distribution day filled up.",
             "Built a date-range invoice report and **composition-based PDF batching** that removed manual order-sorting previously done by hand.",
             "Added **role management** (client ⇄ admin switching) and category management to the MVC admin panel.",
