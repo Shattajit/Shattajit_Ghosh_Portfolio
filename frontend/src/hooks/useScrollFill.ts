@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const ANCHOR_RATIO = 0.35;
+const ANCHOR_RATIO = 0.5;
 
-/** Tracks how far a scroll "anchor" line (35% down the viewport) has
- * traveled through this element, as a pixel height from its top. */
+/** Tracks how far a scroll "anchor" line (the vertical middle of the
+ * viewport) has traveled through this element, as a pixel height from its top. */
 export function useScrollFill<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [fill, setFill] = useState(0);

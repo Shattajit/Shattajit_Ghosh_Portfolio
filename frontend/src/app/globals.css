@@ -189,3 +189,40 @@ body {
     animation: none;
   }
 }
+
+/* Orbit: pivot rotates the icon around the photo; counter cancels that
+   rotation on the icon itself so it stays upright while it travels. */
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+.orbit-pivot {
+  animation: orbit-spin 34s linear infinite;
+}
+
+.orbit-counter {
+  animation: orbit-counter-spin 34s linear infinite;
+}
+
+.orbit-ring {
+  --orbit-radius: 150px;
+}
+
+@media (min-width: 768px) {
+  .orbit-ring {
+    --orbit-radius: 185px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-pivot,
+  .orbit-counter {
+    animation: none;
+  }
+}

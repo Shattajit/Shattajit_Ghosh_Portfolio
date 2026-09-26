@@ -10,16 +10,38 @@ const ROLES = [
   "Competitive Programmer",
 ];
 
-// Six points evenly spaced (60° apart) on one circle of radius 58% around
-// the photo's center, so every badge orbits at the exact same distance.
-const ORBIT_STACK: { name: string; style: React.CSSProperties }[] = [
-  { name: "React", style: { top: "0%", left: "21%" } },
-  { name: "C#", style: { top: "0%", left: "79%" } },
-  { name: "Next.js", style: { top: "50%", left: "108%" } },
-  { name: "ASP.NET Core", style: { top: "50%", left: "-8%" } },
-  { name: "Docker", style: { top: "100%", left: "21%" } },
-  { name: "Node.js", style: { top: "100%", left: "79%" } },
+// Six icons, evenly spaced 60° apart, all revolving together around the
+// photo at the same radius and speed — like planets orbiting a sun.
+const ORBIT_DURATION_S = 34;
+const ORBIT_STACK: { name: string; angle: number }[] = [
+  { name: "React", angle: 240 },
+  { name: "C#", angle: 300 },
+  { name: "Next.js", angle: 0 },
+  { name: "ASP.NET Core", angle: 180 },
+  { name: "Docker", angle: 120 },
+  { name: "Node.js", angle: 60 },
 ];
+
+function OrbitBadge({ name, angle }: { name: string; angle: number }) {
+  const { Icon, color } = getTechIconInfo(name);
+  const delay = `${-(angle / 360) * ORBIT_DURATION_S}s`;
+
+  return (
+    <div
+      className="orbit-pivot absolute left-1/2 top-1/2 hidden h-0 w-0 sm:block"
+      style={{ animationDelay: delay }}
+    >
+      <div className="absolute left-0 top-0" style={{ transform: "translateX(var(--orbit-radius))" }}>
+        <div
+          className="orbit-counter absolute left-0 top-0 flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-surface shadow-lg"
+          style={{ animationDelay: delay }}
+        >
+          <Icon style={{ color }} className="text-lg" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -109,7 +131,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative shrink-0">
+        <div className="orbit-ring relative shrink-0">
           <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-accent/20 blur-2xl" />
           <div className="absolute -inset-4 hidden rounded-full border border-accent/15 sm:block" />
           <div className="absolute -inset-9 hidden rounded-full border border-accent-2/10 sm:block" />
@@ -121,18 +143,9 @@ export default function Hero() {
             priority
             className="h-40 w-40 rounded-full border-2 border-border object-cover sm:h-52 sm:w-52 md:h-64 md:w-64"
           />
-          {ORBIT_STACK.map((item) => {
-            const { Icon, color } = getTechIconInfo(item.name);
-            return (
-              <span
-                key={item.name}
-                style={item.style}
-                className="absolute hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-surface shadow-lg transition-transform hover:scale-110 sm:flex"
-              >
-                <Icon style={{ color }} className="text-lg" />
-              </span>
-            );
-          })}
+          {ORBIT_STACK.map((item) => (
+            <OrbitBadge key={item.name} name={item.name} angle={item.angle} />
+          ))}
         </div>
       </div>
     </section>
