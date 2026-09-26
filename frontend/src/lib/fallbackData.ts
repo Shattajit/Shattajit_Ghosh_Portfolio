@@ -112,28 +112,56 @@ export const fallbackPortfolioData: PortfolioResponse = {
     { title: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB"] },
   ],
   achievements: [
-    { name: "JnU CSE Sports Carnival Programming Contest 2023", result: "2nd", url: null },
-    { name: "JnU Intra Department Programming Contest 2022", result: "4th", url: null },
-    { name: "UITS IUPC 2022", result: "11th", url: null },
-    { name: "AUST IUPC 2022", result: "46th", url: null },
+    {
+      name: "JnU CSE Sports Carnival Programming Contest 2023",
+      result: "2nd",
+      url: "https://vjudge.net/contest/594718##rank",
+    },
+    {
+      name: "JnU Intra Department Programming Contest 2022",
+      result: "4th",
+      url: "https://toph.co/contests/training/2cbypdx/standings",
+    },
+    {
+      name: "UITS IUPC 2022",
+      result: "11th",
+      url: "https://vjudge.net/contest/538028##rank",
+    },
+    {
+      name: "AUST IUPC 2022",
+      result: "46th",
+      url: "https://algo.codemarshal.org/contests/aust-2022/standings",
+    },
     {
       name: "CoU-BRACNet Inter University Programming Contest 2023",
       result: "46th",
-      url: null,
+      url: "https://toph.co/c/cou-bracnet-inter-university-2023/standings",
     },
-    { name: "BUET IUPC 2022 & 2023 (JnU_ABC)", result: "49th", url: null },
+    {
+      name: "BUET IUPC 2022 & 2023 (JnU_ABC)",
+      result: "49th",
+      url: "https://toph.co/c/buet-inter-university-2023/standings",
+    },
     {
       name: "SEC Inter University Junior Programming Contest 2022",
       result: "54th",
-      url: null,
+      url: "https://toph.co/c/sec-inter-university-junior-2022/standings",
     },
-    { name: "SUST IUPC 2023 (JnU_DholaiKhalBois)", result: "76th", url: null },
+    {
+      name: "SUST IUPC 2023 (JnU_DholaiKhalBois)",
+      result: "76th",
+      url: "https://toph.co/c/sust-inter-university-2023/standings",
+    },
     {
       name: "ICPC Asia Dhaka Regional Contest 2022",
       result: "102nd",
-      url: "https://codeforces.com/profile/ShattajiT_",
+      url: "https://icpc.global/private/person/489583/ICPCID",
     },
-    { name: "IEEEXtreme 17.0", result: "740th Global · 4th BD", url: null },
+    {
+      name: "IEEEXtreme 17.0",
+      result: "740th Global · 4th BD",
+      url: "https://csacademy.com/contest/ieeextreme17/scoreboard/",
+    },
     {
       name: "Codeforces",
       result: "Max Rating 1645",

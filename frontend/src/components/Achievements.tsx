@@ -132,7 +132,7 @@ function CodeforcesProfileBranch({ href, rating }: { href: string; rating: strin
         <span className="text-xs opacity-70">↗</span>
       </a>
 
-      <svg width="10" height="22" viewBox="0 0 10 22" className="pointer-events-none absolute left-5 top-full overflow-visible" aria-hidden="true">
+      <svg width="10" height="22" viewBox="0 0 10 22" className="pointer-events-none absolute left-1/2 top-full -translate-x-1/2 overflow-visible" aria-hidden="true">
         <line x1="0" y1="0" x2="0" y2="22" className="tree-wire" />
         <line
           x1="0"
@@ -145,7 +145,7 @@ function CodeforcesProfileBranch({ href, rating }: { href: string; rating: strin
       </svg>
 
       <span
-        className="tree-group-box absolute left-5 -translate-x-1/2 whitespace-nowrap"
+        className="tree-group-box absolute left-1/2 -translate-x-1/2 whitespace-nowrap"
         style={{ top: "calc(100% + 1.5rem)" }}
       >
         {rating}
